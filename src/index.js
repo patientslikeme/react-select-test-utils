@@ -1,19 +1,35 @@
-export function search(select, queryString, callback) {
-  select.find('input').simulate('change', { target: { value: queryString } });
-  setTimeout(() => { callback(); }, 0);
+import Select from 'react-select';
+
+function findSelect(wrapper) {
+  const plainSelect = wrapper.find(Select);
+  if (plainSelect.length > 0) {
+    return plainSelect;
+  }
+
+  const asyncSelect = wrapper.find(Select.Async);
+  if (asyncSelect.length > 0) {
+    return asyncSelect;
+  }
+
+  throw "Couldn't find Select or Select.Async in wrapper";
 }
 
-export function chooseOption(select, optionText) {
-  const options = select.find('.Select-option span');
+export function search(wrapper, queryString, callback) {
+  findSelect(wrapper).find('.Select-input input').simulate('change', { target: { value: queryString } });
+  setTimeout(callback, 0);
+}
+
+export function chooseOption(wrapper, optionText) {
+  const options = findSelect(wrapper).find('.Select-option');
   const matchingOptions = options.findWhere((option) => {
     return option.text() === optionText;
   });
   matchingOptions.simulate('mouseDown');
 }
 
-export function chooseOptionBySearching(select, queryString, optionText, callback) {
-  search(select, queryString, () => {
-    chooseOption(select, optionText);
+export function chooseOptionBySearching(wrapper, queryString, optionText, callback) {
+  search(wrapper, queryString, () => {
+    chooseOption(wrapper, optionText);
     callback();
   });
 }
