@@ -11,7 +11,7 @@ function findSelect(wrapper) {
     return asyncSelect;
   }
 
-  throw "Couldn't find Select or Select.Async in wrapper";
+  throw new Error("Couldn't find Select or Select.Async in wrapper");
 }
 
 export function search(wrapper, queryString, callback) {
@@ -21,9 +21,7 @@ export function search(wrapper, queryString, callback) {
 
 export function chooseOption(wrapper, optionText) {
   const options = findSelect(wrapper).find('.Select-option');
-  const matchingOptions = options.findWhere((option) => {
-    return option.text() === optionText;
-  });
+  const matchingOptions = options.findWhere((option) => option.text() === optionText);
   matchingOptions.simulate('mouseDown');
 }
 
@@ -33,9 +31,3 @@ export function chooseOptionBySearching(wrapper, queryString, optionText, callba
     callback();
   });
 }
-
-export default {
-  search,
-  chooseOption,
-  chooseOptionBySearching
-};

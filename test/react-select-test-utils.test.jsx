@@ -1,14 +1,15 @@
 import React from 'react';
 import sinon from 'sinon';
 import Select from 'react-select';
+import { describe, it } from 'mocha';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
-import ReactSelectTestUtils from '../src/index';
+import { search, chooseOption } from '../src/index';
 
 describe('react-select-test-utils', () => {
   const options = [
-      { value: 'one', label: 'One' },
-      { value: 'two', label: 'Two' }
+    { value: 'one', label: 'One' },
+    { value: 'two', label: 'Two' },
   ];
 
   describe('plain Select', () => {
@@ -22,7 +23,7 @@ describe('react-select-test-utils', () => {
 
       expect(wrapper.find('.Select-option').length).to.equal(0);
 
-      ReactSelectTestUtils.search(wrapper, 'one', () => {
+      search(wrapper, 'one', () => {
         expect(wrapper.find('.Select-option').length).to.equal(1);
         callback();
       });
@@ -38,9 +39,9 @@ describe('react-select-test-utils', () => {
         />
       );
 
-      ReactSelectTestUtils.search(wrapper, 'two', () => {
+      search(wrapper, 'two', () => {
         expect(onChange.callCount).to.equal(0);
-        ReactSelectTestUtils.chooseOption(wrapper, 'Two');
+        chooseOption(wrapper, 'Two');
         expect(onChange.callCount).to.equal(1);
         callback();
       });
@@ -51,7 +52,7 @@ describe('react-select-test-utils', () => {
     const loadOptions = (input, callback) => {
       setTimeout(() => {
         callback(null, {
-          options: options,
+          options,
           complete: true
         });
       }, 0);
@@ -67,7 +68,7 @@ describe('react-select-test-utils', () => {
 
       expect(wrapper.find('.Select-option').length).to.equal(0);
 
-      ReactSelectTestUtils.search(wrapper, 'one', () => {
+      search(wrapper, 'one', () => {
         expect(wrapper.find('.Select-option').length).to.equal(1);
         callback();
       });
@@ -83,9 +84,9 @@ describe('react-select-test-utils', () => {
         />
       );
 
-      ReactSelectTestUtils.search(wrapper, 'two', () => {
+      search(wrapper, 'two', () => {
         expect(onChange.callCount).to.equal(0);
-        ReactSelectTestUtils.chooseOption(wrapper, 'Two');
+        chooseOption(wrapper, 'Two');
         expect(onChange.callCount).to.equal(1);
         callback();
       });
