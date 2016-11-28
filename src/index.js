@@ -21,7 +21,7 @@ export function search(wrapper, queryString, callback) {
 
 export function chooseOption(wrapper, optionText) {
   const options = findSelect(wrapper).find('.Select-option');
-  const matchingOptions = options.findWhere((option) => option.text() === optionText);
+  const matchingOptions = options.filterWhere((option) => option.text() === optionText);
   matchingOptions.simulate('mouseDown');
 }
 
