@@ -1,5 +1,7 @@
 # react-select-test-utils
 
+[![Build Status](https://travis-ci.org/patientslikeme/react-select-test-utils.svg?branch=master)](https://travis-ci.org/patientslikeme/react-select-test-utils)
+
 Helper functions for testing [JedWatson's react-select component](https://github.com/JedWatson/react-select)
 
 ## API
