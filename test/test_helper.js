@@ -23,14 +23,13 @@ global.window = win;
 
 // from mocha-jsdom https://github.com/rstacruz/mocha-jsdom/blob/master/index.js#L80
 function propagateToGlobal(window) {
-  for (const key of Object.keys(window)) {
+  Object.keys(window).forEach((key) => {
     if (key in global) {
-      // eslint-disable-next-line no-continue
-      continue;
+      return;
     }
 
     global[key] = window[key];
-  }
+  });
 }
 
 // take all properties of the window object and also attach it to the
