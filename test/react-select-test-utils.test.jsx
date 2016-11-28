@@ -18,7 +18,7 @@ describe('react-select-test-utils', () => {
         <Select
           name="form-field-name"
           options={options}
-        />
+        />,
       );
 
       expect(wrapper.find('.Select-option').length).to.equal(0);
@@ -36,7 +36,7 @@ describe('react-select-test-utils', () => {
           name="form-field-name"
           options={options}
           onChange={onChange}
-        />
+        />,
       );
 
       search(wrapper, 'two', () => {
@@ -53,7 +53,7 @@ describe('react-select-test-utils', () => {
       setTimeout(() => {
         callback(null, {
           options,
-          complete: true
+          complete: true,
         });
       }, 0);
     };
@@ -63,7 +63,7 @@ describe('react-select-test-utils', () => {
         <Select.Async
           name="form-field-name"
           loadOptions={loadOptions}
-        />
+        />,
       );
 
       expect(wrapper.find('.Select-option').length).to.equal(0);
@@ -81,7 +81,7 @@ describe('react-select-test-utils', () => {
           name="form-field-name"
           loadOptions={loadOptions}
           onChange={onChange}
-        />
+        />,
       );
 
       search(wrapper, 'two', () => {
