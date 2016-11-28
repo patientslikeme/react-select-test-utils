@@ -1,6 +1,6 @@
 {
   "name": "react-select-test-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helper functions for testing JedWatson's react-select component",
   "main": "./build/index.js",
   "scripts": {
