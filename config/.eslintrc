@@ -9,13 +9,7 @@
   },
   'rules': {
     'arrow-parens': [2, 'always'],
-    'class-methods-use-this': 'off', // re-enable this in the future (4)
-    'import/no-extraneous-dependencies': ['error', {'devDependencies': true}], // re-enable this in the future
     'max-len': [2, 140, 4],
-    'no-alert': 'off', // re-enable this in the future (5)
-    'react/forbid-prop-types': 'off', // re-enable this in the future (15)
     'react/jsx-boolean-value': ['error', 'always'],
-    'react/no-find-dom-node': 'off', // re-enable this in the future (4)
-    'react/no-string-refs': 'off', // re-enable this in the future (2)
   }
 }
