@@ -30,7 +30,7 @@
   "author": "Nat Budin",
   "license": "MIT",
   "peerDependencies": {
-    "react-select": ">= 0.0"
+    "react-select": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
